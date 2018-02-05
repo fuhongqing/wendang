@@ -1,0 +1,239 @@
+ul,ol,dl,h1,h2,h3,h4,h5,h6,p {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.clear:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.gt {
+    float: right;
+}
+.lf {
+    float: left;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: #E7E8EB;
+    line-height: 1.6;
+    font-family: "Helvetica Neue","Hiragino Sans GB","Microsoft YaHei","\9ED1\4F53",Arial,sans-serif;
+    color: #222;
+    font-size: 14px;
+}
+/*加粗*/
+.bold{
+    font-weight: bold;
+}
+/*较大的底外边距*/
+.set_bottom{
+    margin-bottom: 45px!important;
+}
+/*灰色背景格式文本*/
+.gray_pre{
+    min-height: 30px;
+    padding: 5px 10px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    font-stretch: normal;
+    font-size: 12px;
+    font-family: "MicroSoft YaHei", "Courier New", "Andale Mono", monospace;
+    border: 1px solid #ccc;
+    color: #333;
+    background: #F5F5F5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.gray_pres{
+    line-height: 0.5;
+    margin: 12px 10px 20px 5px;
+}
+/*格式保留*/
+pre{
+    display: block;
+    margin: 0;
+    font-size: 13px;
+    line-height: 25px;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+/*表格头部背景边框格式*/
+.tbl{
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.tbl>thead>tr>td{
+    background-color: #f4f5f9;
+    border-left: 1px solid #e7e7eb;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #e7e7eb;
+}
+.tbl td{
+    text-align: left;
+    min-width: 80px;
+    line-height: 20px;
+    padding: 10px 32px;
+    vertical-align: top;
+}
+.tbl>tbody>tr{
+    border-bottom: 1px solid #e7e7eb;
+}
+.tbl>tbody>tr:hover{
+    background: #e7e7eb;
+}
+/*列表*/
+.cell{
+    padding-left: 5px;
+    border-top: 1px solid #e7e7eb;
+    border-bottom: 1px solid #e7e7eb;
+    min-height: 10px;
+    background: #F4F5F9;
+}
+.cell:hover{
+    background: #fff;
+}
+ul.cell>li{
+    margin: 15px 0;
+}
+h3{
+    font-size: 16px;
+}
+/*设置整体宽度，居中*/
+header,section{
+    width: 1198px;
+    margin: 0 auto;
+}
+/*头部*/
+header{
+    margin-top: 50px;
+    height: 50px;
+    background: #F4F5F9;
+    padding: 10px 50px 10px 30px;
+}
+header>div{
+    position: relative;
+}
+/*搜索输入框*/
+header input{
+    width: 200px;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid #e7e7eb;
+    box-shadow: none;
+    position: relative;
+    bottom: 3px;
+}
+/*搜索图标*/
+header img{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    cursor: pointer;
+}
+header h3{
+    margin-top: 5px;
+}
+/*内容区*/
+section{
+    display: flex;
+    background: #fff;
+    min-height: 400px;
+}
+/*左侧列表导航项*/
+section div.items{
+    cursor: pointer;
+    width: 208px;
+    min-height: 40px;
+    font-size: 14px;
+    padding: 10px 4px 10px 30px;
+    border-bottom: 1px solid #e6e6e6;
+}
+/*展开，收起图标*/
+section div.items>img{
+    position: relative;
+    top: 7px;
+    right: 10px;
+}
+/*展开列表*/
+/*#hide{*/
+    /*display: none;*/
+/*}*/
+section div.menu{
+    display: none;
+    min-height: 40px;
+}
+/*展开列表项*/
+section div.menu>p{
+    width: 208px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    padding-left: 30px;
+    height: 40px;
+    line-height: 40px;
+}
+section div.menu>div{
+    display: none;
+}
+section div.menu>p:hover{
+    background: #F4F5F9;
+}
+section div.menu>p.active{
+    color: #fff;
+    background: #3eb94e;
+}
+/*右边栏*/
+section>div.content{
+    width: 990px;
+    border-left: 1px solid #e6e6e6;
+}
+/*右边栏内容头部*/
+section>.content>.main_hd{
+    padding: 40px 0 0;
+    margin: 0 50px;
+    border-bottom: 1px solid #e7e7eb;
+    line-height: 55px;
+    height: 81px;
+}
+/*详细内容*/
+section>.content>.main_bd{
+    padding: 25px 50px;
+}
+section>.content>.main_bd>.box>p{
+    margin-bottom: 20px;
+}
+section>.content>.main_bd>.box>h2{
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+/*返回顶部*/
+div.toTop>a{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #3eb94e;
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 20px;
+    margin-right: 75px;
+}

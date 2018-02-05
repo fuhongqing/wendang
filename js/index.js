@@ -1,0 +1,42 @@
+$(function(){
+    $('#test7').nextAll().hide();
+    //导航条目的点击事件，展开与闭合
+   $('section>div>.items').on('click',function(e){
+       $(e.target).siblings('.items').children('img').attr('src','./img/down.png');//其他展开图标
+       if($(e.target).children().first().attr('src').indexOf('down')!=-1){//判断当前的图标是展开的还是收起的
+           $(e.target).siblings('.menu').hide().end().next().show();
+           $(e.target).children('img').attr('src','./img/up.png');
+       }else{
+           $(e.target).next().hide();
+           $(e.target).children('img').attr('src','./img/down.png');
+       }
+   })
+       .on('click','p',function(e){//如果点击的是p元素
+           e.stopPropagation();
+           $(e.target).parent().siblings('.items').children('img').attr('src','./img/down.png');
+           if($(e.target).prev().attr('src').indexOf('down')!=-1){
+               $(e.target).parent().siblings('.menu').hide().end().next().show();
+               $(e.target).prev().attr('src','./img/up.png');
+           }else{
+               $(e.target).parent().next().hide();
+               $(e.target).prev().attr('src','./img/down.png');
+           }
+       })
+       .on('click','img',function(e){//如果点击的是img元素
+           e.stopPropagation();
+           $(e.target).parent().siblings('.items').children('img').attr('src','./img/down.png');
+           if($(e.target).attr('src').indexOf('down')!=-1){
+               $(e.target).parent().siblings('.menu').hide().end().next().show();
+               $(e.target).attr('src','./img/up.png');
+           }else{
+               $(e.target).parent().next().hide();
+               $(e.target).attr('src','./img/down.png');
+           }
+       });
+    //展开内容条目的点击事件
+    $('section>div>.menu').on('click','p',function(e){
+        $(e.target).addClass('active').siblings().removeClass('active');
+        var text_id=$(e.target).attr('class').split(' ')[0];
+        $('section>div.content').html($('#'+text_id).html());
+    });
+});

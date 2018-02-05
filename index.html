@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>接口文档</title>
+    <link rel="stylesheet" href="./css/index.css"/>
+</head>
+<body>
+<!--头部-->
+<header>
+    <!-- <div class="gt">
+        <input type="text"/><img src="./img/search.png" alt=""/>
+    </div-->
+    <h3>易好房开发文档</h3>
+</header>
+<!--主体内容-->
+<section>
+    <div>
+        <!--楼盘模块-->
+        <div class="items">
+            <img src="./img/down.png" alt="" class="gt"/>
+            <p>楼盘模块</p>
+        </div>
+        <!--导航条目-->
+        <div class="menu">
+            <p class="text1">楼盘列表信息</p>
+            <div id="text1">
+                <!--内容头部-->
+                <div class="main_hd">
+                    <h3>楼盘列表信息</h3>
+                </div>
+                <div class="main_bd">
+                    <div class="box">
+                        <p>查询楼盘列表信息接口</p>
+
+                        <p class="bold">接口调用请求说明</p>
+
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <p>http请求方式: POST</p>
+
+                                <p>http://api.ehaofang.com/ehaofang-pubapi/xtProperty/getPropertyList.do</p>
+
+                            </div>
+                        </div>
+                        <p class="bold">参数说明</p>
+                        <table class="tbl">
+                            <thead>
+                                <tr>
+                                    <td style="border-left: none">参数名</td>
+                                    <td>是否必须</td>
+                                    <td>类型</td>
+                                    <td>说明</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>agencyId</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>公司id</td>
+                                </tr>
+                                <tr>
+                                    <td>accessToken</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>接口凭证</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="bold">返回说明</p>
+                        <p>查询成功返回：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "data": [
+        {
+            "cityName": "昆山市",//城市名称,
+            "propertyusername": "郭平", //项目负责人
+            "propertyusermobile": "13451782116", //项目负责人电话
+            "propertyName": "天润尚院",//楼盘名称
+            "commissionMoney": "150000",//佣金
+            "sellState":4,//销售状态（1：预售，2：在售，3：现房，4：售完）
+            "mainPic": "20170705170705162123559-3957.jpg",//楼盘图片显示路径
+            "minAcreage": 200,//最小面积
+            "id": 3,//楼盘id
+            "averagePrice": 13000,//平均价
+            "boroughName": "周庄",//区域
+            "maxAcreage": 297,//最大面积
+            "buildingType": "1,2",//逗号为正则分开 然后数字代表的意思如下：1：住宅，2：别墅，3：公寓，4：商铺 ，5：写字楼 6：洋房
+            "status": 0 //等于0 为未签约 大于0 为已签约
+        }
+    ],
+    "status": "success",
+    "info": "查询成功!"
+}
+</pre>
+                            </div>
+                        </div>
+                        <p>查询失败返回：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "data": null,
+    "status": "failure",
+    "info": "error_accesstoken"   //不合法的accessToken
+}
+或
+{
+    "status": "failure",
+    "data": null,
+    "info": "参数不合法!"
+}
+或
+{
+    "status": "failure",
+    "data": null,
+    "info": "系统异常!"
+}
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toTop">
+                    <a href="#">TOP</a>
+                </div>
+            </div>
+            <p class="text2">楼盘详情信息接口</p>
+            <div id="text2">
+                <!--内容头部-->
+                <div class="main_hd">
+                    <h3>楼盘详情信息接口</h3>
+                </div>
+                <div class="main_bd">
+                    <div class="box">
+                        <p>楼盘详情信息接口</p>
+
+                        <p class="bold">接口调用请求说明</p>
+
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <p>http请求方式: POST</p>
+
+                                <p>http://api.ehaofang.com/ehaofang-pubapi/xtProperty/getXtPropertyDetails.do</p>
+
+                            </div>
+                        </div>
+                        <p class="bold">参数说明</p>
+                        <table class="tbl">
+                            <thead>
+                            <tr>
+                                <td style="border-left: none">参数名</td>
+                                <td>是否必须</td>
+                                <td>类型</td>
+                                <td>说明</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>propertyId</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>楼盘id</td>
+                                </tr>
+                                <tr>
+                                    <td>agencyId</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>公司id</td>
+                                </tr>
+                                <tr>
+                                    <td>accessToken</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>接口凭证</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="bold">返回说明</p>
+                        <p>查询成功返回：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "data": {
+    "midimglist": ---轮播图[
+        "//2017/5/15/530d8437-7f1e-4c53-8254-b33edb48a0bd.png?imageView2/2/h/200",
+        "//2017/5/15/d0ac71cb-e0d1-4207-84a8-f2301867340a.jpg?imageView2/2/h/200",
+        "//2017/5/15/76f09e60-64aa-4466-b63e-f7efc65cb1ad.jpg?imageView2/2/h/200"
+    ],
+    "xmxq":  ----项目详情[
+        {
+            "KeyImg": "/2017/5/15/530d8437-7f1e-4c53-8254-b33edb48a0bd.png,/2017/5/15/d0ac71cb-e0d1-4207-84a8-f2301867340a.jpg,/2017/5/15/76f09e60-64aa-4466-b63e-f7efc65cb1ad.jpg",
+            "acreage1": 216033,//占地面积
+            "latitude": "",//baidu纬度
+            "acreage2": 104354, //总建筑面积
+            "minSalePrice": "",//最小值（房源价）
+            "ringRoad": 0,
+            "virescenceRatio": 35,//绿化率
+            "briefIntroduction": "超百万方综合社区，类独栋设计纯双拼别墅，周边配套学区，地铁仅距离1公里。",
+            "buildingTotal": 140, //楼栋总数
+            "cubageRatio": 0.67,//容积率
+            "propertyusername": "",//项目总
+            "agentSaler": "上海轩天实业有限公司",
+            "sellState": 2,//销售状态（1：预售，2：在售，3：现房，4：售完）
+            "sellTelephone": "400-890-000转6685666",//售楼处电话
+            "mainPic": "/2017/5/15/530d8437-7f1e-4c53-8254-b33edb48a0bd.png",
+            "id": 1102,//楼盘id
+            "attribute": "央企、双拼、地铁、学区、新城",
+            "openTime": "2016-07-01",//开盘时间
+            "decoration": "毛坯",//装修情况（毛坯，全装修，部分全装修）
+            "propertyusermobile": "",//项目总电话
+            "theWords": "",//说词
+            "traffic": "",//周围交通
+            "longitude": "",//baidu经度
+            "sellAddress": "无锡市惠山区洛社镇江海西路与洛南路交汇处",//售楼处地址
+            "finishTime": "2015-10-31",// 竣工时间
+            "process": "",//销售三段论
+            "imageName": "",
+            "address": "江海西路与洛南路交汇处",//楼盘地址
+            "sellLicence": "",//销售许可证
+            "shoppingArea": "洛社镇",//商圈
+            "advantage": "一、荣誉央企，实力钜筑；\n二、世博会专属物业--华高物业，真正做到后顾无忧；\n三、科技豪宅，十五大科技首创智能化社区，户户赠送价值约四十万地源热泵；\n四、四位一体，地铁，高架，高速，高铁，出行无忧；\n五、百年名校，学区成熟，本科升学率高达88%；\n六、人车分流，安全、无忧；\n七、约1:1附送面积，类独栋房型设计；\n八、超百万方综合社区，无锡市最奢华社区之一；\n九、地处洛社新城区核心位置，周边与社区商圈满足业主所有需求；\n十、泛亚集团景观设计，独具匠心，一步一景。",//卖点
+            "equipment": "学校、医院、银行、商超市",//配套设备
+            "parkingSpace": 300,//停车位
+            "propertyCorp": "华高物业",//物业公司
+            "maxSalePrice": "",//最大值（房源价）
+            "subway": "3分钟",
+            "checkTime": "1900-01-01",//交房时间
+            "propertyName": "南光洛龙湾壹号",//楼盘名称
+            "subwayStation": "洛竹路站",//地铁站点
+            "developer": "无锡金银岛置业",//开发商
+            "overheadCost": 3,//物业管理费
+            "averagePrice": "",//小区均价
+            "mapbar": "",
+            "buildingType": "2"//建筑类型 0 公寓 1：独栋，2：联排，3：双拼，4：叠加
+        }
+    ],
+    "mess": ----合作成交情况 [
+        {
+            "reportCustomer": 912,//意向客户
+            "agentMemberCount": 3517,//合作经纪人
+            "totalHouse": 10//最近成交
+        }
+    ],
+    "imglist":  ----点开大图[
+        "/2017/5/15/530d8437-7f1e-4c53-8254-b33edb48a0bd.png",
+        "/2017/5/15/d0ac71cb-e0d1-4207-84a8-f2301867340a.jpg",
+        "/2017/5/15/76f09e60-64aa-4466-b63e-f7efc65cb1ad.jpg"
+    ]
+  },
+    "status": "success",
+    "info": "查询成功!"
+}
+</pre>
+                            </div>
+                        </div>
+                        <p>查询失败返回：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "data": null,
+    "status": "failure",
+    "info": "error_accesstoken"   //不合法的accessToken
+}
+或
+{
+    "data": null,
+    "status": "failure",
+    "info": "参数不合法!"
+}
+或
+{
+    "data": null,
+    "status": "failure",
+    "info": "系统异常!"
+}
+或
+{
+    "data": null,
+    "status": "failure",
+    "info": "error_accesstoken"   //不合法的accessToken
+}
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toTop">
+                    <a href="#">TOP</a>
+                </div>
+            </div>
+            <p class="text3">查询楼盘主力户型详情</p>
+            <div id="text3">
+                <!--内容头部-->
+                <div class="main_hd">
+                    <h3>查询楼盘主力户型详情</h3>
+                </div>
+                <div class="main_bd">
+                    <div class="box">
+                        <p>查询楼盘主力户型详情接口</p>
+
+                        <p class="bold">接口调用请求说明</p>
+
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <p>http请求方式: POST</p>
+
+                                <p>http://api.ehaofang.com/ehaofang-pubapi/xtProperty/getXtPropertyZLHXDetails.do</p>
+
+                            </div>
+                        </div>
+                        <p class="bold">参数说明</p>
+                        <table class="tbl">
+                            <thead>
+                            <tr>
+                                <td style="border-left: none">参数名</td>
+                                <td>是否必须</td>
+                                <td>类型</td>
+                                <td>说明</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>propertyId</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>楼盘id</td>
+                                </tr>
+                                <tr>
+                                    <td>agencyId</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>公司id</td>
+                                </tr>
+                                <tr>
+                                    <td>accessToken</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>接口凭证</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="bold">返回说明</p>
+                        <p>查询成功返回：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "data": {
+        "zlhxMap": [
+            {
+                "salePrice": 120, ----售价
+                "midurlList": [
+                    "//2016/12/29/ee8eefe4-927f-42a5-9093-11f21aebe960.jpg?imageView2/2/h/400"
+                ],-----中图
+                "houseType": 202,-----[101,'普通住宅'],[201,'联排别墅'],[202,'独栋别墅'],[203,'双拼别墅'],[204,'叠加别墅'],[205,'串联别墅'],[206,'亲水别墅'],[207,'类独栋别墅'],[208,'Mini墅'],[209,'合院别墅'],[210,'商用别墅'],[301,'酒店式公寓'],[401,'商铺'],[501,'写字楼'],[601,'洋房']
+                "acreage": 160,
+                "remark": "",
+                "houseModel": "A户型",----主力户型
+                "room1": 4,------室
+                "room2": 2, -----厅
+                "room3": 1,------卫
+                "mainImage": "/2016/12/29/ee8eefe4-927f-42a5-9093-11f21aebe960.jpg",
+                "bigurlList": [
+                    "//2016/12/29/ee8eefe4-927f-42a5-9093-11f21aebe960.jpg?imageView2/2/h/600"
+                ],-----大图
+                "minurlList": [
+                    "//2016/12/29/ee8eefe4-927f-42a5-9093-11f21aebe960.jpg?imageView2/2/h/200"
+                ],----小图
+                "furniture": "",---家具清单
+                "decoration": "毛坯",----装修情况（毛坯，普通装修，精装修，豪华装修）
+                "adWord": "",----标题
+                "salePriceLevel": 3
+            }
+        ]
+    },
+    "status": "success",
+    "info":"查询成功！"
+}
+</pre>
+                            </div>
+                        </div>
+                        <p>查询失败返回：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "data": null,
+    "status": "failure",
+    "info": "error_accesstoken"   //不合法的accessToken
+}
+或
+{
+    "status": "failure",
+    "data": null,
+    "info": "参数不合法!"
+}
+或
+{
+    "status": "failure",
+    "data": null,
+    "info": "系统异常!"
+}
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toTop">
+                    <a href="#">TOP</a>
+                </div>
+            </div>
+            <p class="text4">公司签约楼盘</p>
+            <div id="text4">
+                <!--内容头部-->
+                <div class="main_hd">
+                    <h3>公司签约楼盘</h3>
+                </div>
+                <div class="main_bd">
+                    <div class="box">
+                        <p>公司签约楼盘接口</p>
+
+                        <p class="bold">接口调用请求说明</p>
+
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <p>http请求方式: POST</p>
+
+                                <p>http://api.ehaofang.com/ehaofang-pubapi/xtProperty/signPropertyAndAgency.do</p>
+
+                            </div>
+                        </div>
+                        <p class="bold">参数说明</p>
+                        <table class="tbl">
+                            <thead>
+                            <tr>
+                                <td style="border-left: none">参数名</td>
+                                <td>是否必须</td>
+                                <td>类型</td>
+                                <td>说明</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>楼盘id</td>
+                                </tr>
+                                <tr>
+                                    <td>agentstr</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>
+                                        <div class="cell set_bottom">
+                                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "branchList": [ //门店列表
+        {
+            "areaCity": "上海",//城市  无传空
+            "areaPlate": "华漕",//板块 无传空
+            "areaBough": "闵行",//区域 无传空
+            "address": "长宁区同协路268号",//门店地址
+            "total": "3",//门店人数
+            "telephone": "18745242456",//门店联系人电话
+            "branchId": "1",//门店id
+            "abbreviation": "链",//门店简称
+            "agencyName": "上海链家",//门店名称
+            "linkName": "刘"//门店联系人姓名
+        },
+        {
+            "areaCity": "上海",
+            "areaPlate": "华漕",
+            "areaBough": "闵行",
+            "address": "长宁区同协路268号",
+            "total": "3",
+            "telephone": "18745242456",
+            "branchId": "1",
+            "abbreviation": "链",
+            "agencyName": "上海链家",
+            "linkName": "刘"
+        }
+    ],
+    "agent": {//公司
+        "areaCity": "上海",//城市  无传空
+        "areaPlate": "华漕",//板块 无传空
+        "areaBough": "闵行",//区域 无传空
+        "address": "长宁区同协路268号",//公司地址
+        "total": "3",//公司人数
+        "telephone": "18745242456",//门店联系人电话
+        "agentId": "1",//公司id
+        "abbreviation": "链",//公司简称
+        "agencyName": "上海链家",//公司名称
+        "linkName": "刘"//门店联系人姓名
+    }
+}
+</pre>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>accessToken</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>接口凭证</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="bold">返回说明</p>
+                        <p>签约成功返回：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "data": {
+        "agentId": "1:35845", //公司ID     冒号前为贵公司中介公司ID  冒号后为易好房系统公司ID
+        "branchIdList": [    //门店列表ID   冒号前为贵公司中介门店ID  冒号后为易好房系统门店ID
+            "2:35847",
+            "3:35848"
+        ]
+    },
+    "status": "success",
+    "info": "签约成功!"
+}
+</pre>
+                            </div>
+                        </div>
+                        <p>签约失败返回：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "data": null,
+    "status": "failure",
+    "info": "error_accesstoken"   //不合法的accessToken
+}
+或
+{
+    "status": "failure",
+    "data":null,
+    "info": "参数不合法!"
+}
+或
+{
+    "status": "failure",
+    "data":null,
+    "info": "系统异常!"
+}
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toTop">
+                    <a href="#">TOP</a>
+                </div>
+            </div>
+            <p class="text5">查询楼盘团购信息和佣金方案接口</p>
+            <div id="text5">
+                <!--内容头部-->
+                <div class="main_hd">
+                    <h3>查询楼盘团购信息和佣金方案接口</h3>
+                </div>
+                <div class="main_bd">
+                    <div class="box">
+                        <p>查询楼盘团购信息和佣金方案接口</p>
+
+                        <p class="bold">接口调用请求说明</p>
+
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <p>http请求方式: POST</p>
+
+                                <p>http://api.ehaofang.com/ehaofang-pubapi/xtProperty/getXtPropertyYJFAandTGXQDetails.do</p>
+
+                            </div>
+                        </div>
+                        <p class="bold">参数说明</p>
+                        <table class="tbl">
+                            <thead>
+                            <tr>
+                                <td style="border-left: none">参数名</td>
+                                <td>是否必须</td>
+                                <td>类型</td>
+                                <td>说明</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>propertyId</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>楼盘id</td>
+                                </tr>
+                                <tr>
+                                    <td>agencyId</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>公司id</td>
+                                </tr>
+                                <tr>
+                                    <td>accessToken</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>接口凭证</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="bold">返回说明</p>
+                        <p>查询成功返回：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "data": {
+        "yjfaList": [//佣金方案
+            {
+                "commissionMoney": "220000",//结佣数字
+                "commissionAdword": "双拼"//标题描述
+            },
+            {
+                "commissionMoney": "350000",
+                "commissionAdword": "独栋"
+            },
+            {
+                "commissionMoney": "500000",
+                "commissionAdword": "楼王"
+            }
+        ],
+        "tgxqList": [//团购详情
+            {
+                "detailName": "25万抵50万",
+                "buildingType": "双拼别墅"
+            },
+            {
+                "detailName": "25万抵50万",
+                "buildingType": "双拼别墅"
+            },
+            {
+                "detailName": "125万抵500万",
+                "buildingType": "双拼别墅"
+            }
+        ]
+    },
+    "status": "success",
+    "info": "查询成功!"
+}
+</pre>
+                            </div>
+                        </div>
+                        <p>查询失败返回：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "data": null,
+    "status": "failure",
+    "info": "error_accesstoken"   //不合法的accessToken
+}
+或
+{
+    "status": "failure",
+        "data": null,
+    "info": "参数不合法!"
+}
+或
+{
+    "status": "failure",
+        "data": null,
+    "info": "系统异常!"
+}
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toTop">
+                    <a href="#">TOP</a>
+                </div>
+            </div>
+        </div>
+        <!--客户模块-->
+        <div class="items">
+            <img src="./img/down.png" alt="" class="gt"/>
+            <p>客户模块</p>
+        </div>
+        <!--导航条目-->
+        <div class="menu">
+            <p class="text6">下拉案场列表接口</p>
+            <div id="text6">
+                <!--内容头部-->
+                <div class="main_hd">
+                    <h3>下拉案场列表接口</h3>
+                </div>
+                <div class="main_bd">
+                    <div class="box">
+                        <p>下拉案场列表接口</p>
+
+                        <p class="bold">接口调用请求说明</p>
+
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <p>http请求方式: POST</p>
+
+                                <p>http://api.ehaofang.com/ehaofang-pubapi/xtCustomer/saleUserListByPropertyId</p>
+
+                            </div>
+                        </div>
+                        <p class="bold">参数说明</p>
+                        <table class="tbl">
+                            <thead>
+                            <tr>
+                                <td style="border-left: none">参数名</td>
+                                <td>是否必须</td>
+                                <td>类型</td>
+                                <td>说明</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>propertyId</td>
+                                <td>是</td>
+                                <td>String</td>
+                                <td>楼盘ID</td>
+                            </tr>
+                            <tr>
+                                <td>accessToken</td>
+                                <td>是</td>
+                                <td>String</td>
+                                <td>接口凭证</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p class="bold">返回说明</p>
+                        <p>查询成功返回：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 4167,//案场id
+            "name": "刘建朋"//案场姓名
+        },
+        {
+            "id": 4169,
+            "name": "陈辉"
+        }
+    ]
+}
+</pre>
+                            </div>
+                        </div>
+                        <p>查询失败返回：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "status": "failure",
+    "info:"查询失败!"
+}
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toTop">
+                    <a href="#">TOP</a>
+                </div>
+            </div>
+            <p class="text7">报备客户接口</p>
+            <div id="text7">
+                <!--内容头部-->
+                <div class="main_hd">
+                    <h3>报备客户接口</h3>
+                </div>
+                <div class="main_bd">
+                    <div class="box">
+                        <p>报备客户接口</p>
+
+                        <p class="bold">接口调用请求说明</p>
+
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <p>http请求方式: POST</p>
+
+                                <p>http://api.ehaofang.com/ehaofang-pubapi/xtCustomer/customerperReserve.do</p>
+
+                            </div>
+                        </div>
+                        <p class="bold">参数说明</p>
+                        <table class="tbl">
+                            <thead>
+                            <tr>
+                                <td style="border-left: none">参数名</td>
+                                <td>是否必须</td>
+                                <td>类型</td>
+                                <td>说明</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>memberId</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>接入方公司的经纪人ID</td>
+                                </tr>
+                                <tr>
+                                    <td>memberName</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>经纪人姓名</td>
+                                </tr>
+                                <tr>
+                                    <td>mobilephone</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>经纪人联系电话</td>
+                                </tr>
+                                <tr>
+                                    <td>sex</td>
+                                    <td>否</td>
+                                    <td>String</td>
+                                    <td>经纪人性别  //（0-未知，1-男，2-女）</td>
+                                </tr>
+                                <tr>
+                                    <td>email</td>
+                                    <td>否</td>
+                                    <td>String</td>
+                                    <td>经纪人邮箱</td>
+                                </tr>
+                                <tr>
+                                    <td>memberAddress</td>
+                                    <td>否</td>
+                                    <td>String</td>
+                                    <td>经纪人地址</td>
+                                </tr>
+                                <tr>
+                                    <td>name</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>报备客户名称</td>
+                                </tr>
+                                <tr>
+                                    <td>firstNum</td>
+                                    <td>否</td>
+                                    <td>String</td>
+                                    <td>手机号前三位 phone参数为空时必须字段</td>
+                                </tr>
+                                <tr>
+                                    <td>lastNum</td>
+                                    <td>否</td>
+                                    <td>String</td>
+                                    <td>手机号后四位 phone参数为空时必须字段</td>
+                                </tr>
+                                <tr>
+                                    <td>propertyId</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>楼盘ID</td>
+                                </tr>
+                                <tr>
+                                    <td>lookHomeDate</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>来访时间 //格式如：2016-12-10 07:00</td>
+                                </tr>
+                                <tr>
+                                    <td>visitorsNumber</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>来访人数</td>
+                                </tr>
+                                <tr>
+                                    <td>saleUserId</td>
+                                    <td>否</td>
+                                    <td>String</td>
+                                    <td>案场ID</td>
+                                </tr>
+                                <tr>
+                                    <td>shuttle</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>来访方式 0班车 1自驾</td>
+                                </tr>
+                                <tr>
+                                    <td>agentId</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>接入公司的分销公司ID</td>
+                                </tr>
+                                <tr>
+                                    <td>branchId</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>接入公司的分销公司门店ID</td>
+                                </tr>
+                                <tr>
+                                    <td>address</td>
+                                    <td>否</td>
+                                    <td>String</td>
+                                    <td>上车地点 （班车时为必须参数）</td>
+                                </tr>
+                                <tr>
+                                    <td>carTime</td>
+                                    <td>否</td>
+                                    <td>String</td>
+                                    <td>上车时间 （班车时为必须参数）//格式如：07:00</td>
+                                </tr>
+                                <tr>
+                                    <td>decoration</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>描述</td>
+                                </tr>
+                                <tr>
+                                    <td>phone</td>
+                                    <td>否</td>
+                                    <td>String</td>
+                                    <td>firstNum lastNum参数为空时 为必须字段</td>
+                                </tr>
+                                <tr>
+                                    <td>accessToken</td>
+                                    <td>是</td>
+                                    <td>String</td>
+                                    <td>接口凭证</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="bold">返回说明</p>
+                        <p>报备预约成功返回：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "data": { //返回信息
+        "customerId": 221078,//易好房系统生成的客户ID
+        "memberId": 83544// 易好房系统生成的经纪人ID
+    },
+    "status": "success",
+    "info": "报备预约成功!"
+}
+</pre>
+                            </div>
+                        </div>
+                        <p>报备预约失败返回：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "status":"failure",
+    "data":null,
+    "info":"报备预约失败!"
+}
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toTop">
+                    <a href="#">TOP</a>
+                </div>
+            </div>
+            <p class="text8">客户交易过程所有详情</p>
+            <div id="text8">
+                <!--内容头部-->
+                <div class="main_hd">
+                    <h3>客户交易过程所有详情</h3>
+                </div>
+                <div class="main_bd">
+                    <div class="box">
+                        <p>客户交易过程所有详情</p>
+
+                        <p class="bold">接口调用请求说明</p>
+
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <p>http请求方式: POST</p>
+
+                                <p>http://api.ehaofang.com/ehaofang-pubapi/xtCustomer/customerJYDetail.do</p>
+
+                            </div>
+                        </div>
+                        <p class="bold">参数说明</p>
+                        <table class="tbl">
+                            <thead>
+                            <tr>
+                                <td style="border-left: none">参数名</td>
+                                <td>是否必须</td>
+                                <td>类型</td>
+                                <td>说明</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>customerId</td>
+                                <td>是</td>
+                                <td>String</td>
+                                <td>客户id //易好房系统的客户ID</td>
+                            </tr>
+                            <tr>
+                                <td>propertyId</td>
+                                <td>是</td>
+                                <td>String</td>
+                                <td>楼盘id //易好房系统的楼盘ID</td>
+                            </tr>
+                            <tr>
+                                <td>memberId</td>
+                                <td>是</td>
+                                <td>String</td>
+                                <td>经纪人id （例 中介公司经纪人id ）</td>
+                            </tr>
+                            <tr>
+                                <td>accessToken</td>
+                                <td>是</td>
+                                <td>String</td>
+                                <td>接口凭证</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p class="bold">返回说明</p>
+                        <p>查询成功返回：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "data": {
+     "cJDetail": [ //列表  客户可能多次成交  里面包含多个列表
+            [//本身是列表信息  包含大定 签约等
+                    {
+                    "tradingTime": null,//约签时间
+                    "groupActualpay": 6000,//实收团购(实收定金)
+                    "banNO": "13",//签约时间
+                    "signMoney": 10000,//签约总价(大定金额)
+                    "signTime": "2017-11-08",//签约时间
+                    "houseSaleType": 4,//3大定，4成交
+                    "salePrice": 5000,//大定金额(已付大定金额)
+                    "saleMobile": "15821514296",//案场号码   列表第一个的案场号码为最新案场号码
+                    "phoneNum": "15698988877",//手机号
+                    "remark": "",//备注
+                    "assistantState": "4 ",
+                    "creatTime": "2017-08-08 17:26:07",
+                    "propertyName": "江南美墅",//客户名
+                    "placeUserName": "王锦锦",//客户名
+                    "name": "费波",//案场名字
+                    "dealArea": 50,//客户名
+                    "fullname": "小样儿",//客户名
+                    "adWord": "103",//房间号
+                    "groupStateTitle": "125万抵500万",//应收团购(应收定金)
+                    "groupShouldpay": 5000//应收团购(应收定金)
+                    },
+                    {
+                        "tradingTime": "2017-08-08 17:17:00",
+                        "groupActualpay": 0,
+                        "banNO": "13",
+                        "signMoney": 10000,
+                        "signTime": "2017-08-08",
+                        "houseSaleType": 3,
+                        "salePrice": 900,
+                        "saleMobile": "15821514296",
+                        "phoneNum": "15698988877",
+                        "remark": "",
+                        "assistantState": "4 ",
+                        "creatTime": "2017-08-08 17:17:00",
+                        "propertyName": "江南美墅",
+                        "placeUserName": "王锦锦",
+                        "name": "费波",
+                        "dealArea": 50,
+                        "fullname": "小样儿",
+                        "adWord": "103",
+                        "groupStateTitle": "125万抵500万",
+                        "groupShouldpay": 5000
+                    }
+                ],
+                [
+                    {
+                        "tradingTime": "",
+                        "groupActualpay": 6000,
+                        "banNO": "13",
+                        "signMoney": 10000,
+                        "signTime": "2017-11-08",
+                        "houseSaleType": 4,
+                        "salePrice": 5000,
+                        "saleMobile": "15821514296",
+                        "phoneNum": "15698988877",
+                        "remark": "",
+                        "assistantState": "4 ",
+                        "creatTime": "2017-08-08 17:26:07",
+                        "propertyName": "江南美墅",
+                        "placeUserName": "王锦锦",
+                        "name": "费波",
+                        "dealArea": 50,
+                        "fullname": "小样儿",
+                        "adWord": "103",
+                        "groupStateTitle": "125万抵500万",
+                        "groupShouldpay": 5000
+                    },
+                    {
+                        "tradingTime": "2017-08-08 17:17:00",
+                        "groupActualpay": 0,
+                        "banNO": "13",
+                        "signMoney": 10000,
+                        "signTime": "2017-08-08",
+                        "houseSaleType": 3,
+                        "salePrice": 900,
+                        "saleMobile": "15821514296",
+                        "phoneNum": "15698988877",
+                        "remark": "",
+                        "assistantState": "4 ",
+                        "creatTime": "2017-08-08 17:17:00",
+                        "propertyName": "江南美墅",
+                        "placeUserName": "王锦锦",
+                        "name": "费波",
+                        "dealArea": 50,
+                        "fullname": "小样儿",
+                        "adWord": "103",
+                        "groupStateTitle": "125万抵500万",
+                        "groupShouldpay": 5000
+                    }
+                ]
+        ],
+         "yJDetail": [//佣金详情 此为列表 客户多次成交 多次申佣
+            { --客户佣金详情
+            "yJMap": {
+                "tigongfapiao": "1 ",//签约时间
+                "yongjin": 6300,//佣金金额
+                "financeTime": "2017-08-08 17:36:00"//签约时间
+            },
+            "zYMap": {
+                "yingfayongjin": 6300,//应发佣金
+                "shifayongjin": 6000,//实发佣金
+                "cashPrice": 300,//奖励
+                "zheyong": 0//折佣金
+            },
+            "sYGCMmap": [ ---申佣过程
+                {
+                    "createtime": "2017-08-08 17:36:26",
+                    "userState": "1",
+                    "typeId": "4",// 1 助理 2 法务 3 财务 4发放状态
+                    "remark": "已发放!"//佣金金额
+                                         // TypeID为1 UserState 为1时 助理已提交  UserState 不为1时 助理未提交
+//                //    TypeID为2 UserState 为1时 法务审核通过  UserState 不为1时 法务审核驳回
+//                  //  TypeID为3 UserState 为1时 财务审核通过  UserState 不为1时 财务审核驳回
+//                  //  TypeID为4 UserState 为1时 已发放  UserState 不为1时 未发放
+                },
+                {
+                    "createtime": "2017-08-08 17:35:40",
+                    "userState": "1",
+                    "typeId": "3",
+                    "remark": "财务审核通过!"
+                },
+                {
+                    "createtime": "2017-08-08 17:35:23",
+                    "userState": "1",
+                    "typeId": "2",
+                    "remark": "法务审核通过!"
+                },
+                {
+                    "createtime": "2017-08-08 17:34:58",
+                    "userState": "1",
+                    "typeId": "1",
+                    "remark": "助理已提交!"
+                }
+            ]
+        }
+        ],
+        "lFDetail": [ ---来访详情
+            {
+                "nexttradeTime": "2017-08-03",//下次来访时间
+                "givenPrice": "          ",//出价
+                "houseNameArr": "江南美墅-",
+                "lookTime": "2017-08-03 18:09:00",
+                "visitorCount": "一访",//来访次数
+                "isSeat": "0",//1 为 落座  0位没有
+                "saleusername": "费波",//客户电话
+                "phoneNum": "188****8888",//客户电话
+                "remark": "",
+                "lookStructure": 6,//来访人数
+                "houseIDarr": "",//不为空表落位
+                "createTime": "2017-08-03 18:09:00",//来访时间
+                "propertyName": "江南美墅",//楼盘名
+                "customerID": 214717,
+                "customername": "甜菊糖",//客户
+                "saleusermobile": "15821514296"//案场号码  列表第一个案场号码为最新的 应去第一个
+            }
+        ],
+        "bBDetail": [
+            {
+                "lookTime": null,
+                "lookHomeDate": "2017-08-03 17:17",//来访时间
+                "fullName": "甜菊糖",//客户名
+                "phoneNum": "188****8888", //客户电话
+                "placeUserPhoneNumber": "17621060939", //联动电话
+                "shuttle": "1 ",// 0为班车，1为自驾
+                "houseValuation": null,//上车地点
+                "createTime": "2017-08-03 17:16:16",//报备时间
+                "propertyName": "江南美墅",//楼盘名
+                "visitorsNumber": 3,//来访人数
+                "name": "费波",//案场名字
+                "carTime": "", //上车时间
+                "decoration": "",//描述
+                "lookTimeMinute": 0
+            }
+        ]
+    },
+    "status": "success",
+    "info":"查询成功!"
+}
+</pre>
+                            </div>
+                        </div>
+                        <p>查询失败返回：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "status": "failure",
+    "info:"查询失败!"
+}
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toTop">
+                    <a href="#">TOP</a>
+                </div>
+            </div>
+            <p class="text9">查询变动的客户列表</p>
+            <div id="text9">
+                <!--内容头部-->
+                <div class="main_hd">
+                    <h3>查询变动的客户列表</h3>
+                </div>
+                <div class="main_bd">
+                    <div class="box">
+                        <p>查询变动的客户列表接口</p>
+
+                        <p class="bold">接口调用请求说明</p>
+
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <p>http请求方式: POST</p>
+
+                                <p>http://localhost:8080/ehaofang-pubapi/xtCustomer/queryChangeCustomerList.do</p>
+
+                            </div>
+                        </div>
+                        <p class="bold">参数说明</p>
+                        <table class="tbl">
+                            <thead>
+                            <tr>
+                                <td style="border-left: none">参数名</td>
+                                <td>是否必须</td>
+                                <td>类型</td>
+                                <td>说明</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>accessToken</td>
+                                <td>是</td>
+                                <td>String</td>
+                                <td>接口调用凭证</td>
+                            </tr>
+                            <tr>
+                                <td>startTime</td>
+                                <td>是</td>
+                                <td>String</td>
+                                <td>起始时间 (格式为： 2018-01-04 14:08:27)</td>
+                            </tr>
+                            <tr>
+                                <td>pageNum</td>
+                                <td>是</td>
+                                <td>String</td>
+                                <td>当前页</td>
+                            </tr>
+                            <tr>
+                                <td>pageSize</td>
+                                <td>是</td>
+                                <td>String</td>
+                                <td>每页大小</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p class="bold">返回说明</p>
+                        <p>查询成功返回：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "data": {
+        "changeCustomerList": [
+          {
+            "createTime": "2018-01-04 14:08:27",//创建时间
+            "customerId": 216810,//易好房客户id
+            "outerMemberId": "11",//接入方经纪人id
+            "yhfMemberId": 82535,//易好房经纪人id
+            "propertyId": 84//楼盘id
+            },
+            {
+                "createTime": "2018-01-08 11:26:44",
+                "customerId": 642701,
+                "outerMemberId": "b844d36f-538a-4f72-925d-a66a9626059f",
+                "yhfMemberId": 162895,
+                "propertyId": 2140
+            }
+        ],
+        "count": 3 //总个数
+    },
+    "status": "success",
+    "info": "查询成功!"
+}
+</pre>
+                            </div>
+                        </div>
+                        <p>查询失败返回：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "data": null,
+    "status": "failure",
+    "info": "error_accesstoken"
+}
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toTop">
+                    <a href="#">TOP</a>
+                </div>
+            </div>
+            <!--hide位置,已备份，=>hide.html-->
+        </div>
+        <!--用户认证-->
+        <div class="items">
+            <img src="./img/down.png" alt="" class="gt"/>
+            <p>用户认证</p>
+        </div>
+        <!--导航条目-->
+        <div class="menu">
+            <p class="text18">获取accessToken接口</p>
+            <div id="text18">
+                <!--内容头部-->
+                <div class="main_hd">
+                    <h3>获取accessToken接口</h3>
+                </div>
+                <div class="main_bd">
+                    <div class="box">
+                        <p>获取accessToken接口</p>
+
+                        <p class="bold">接口调用请求说明</p>
+
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <p>http请求方式: POST</p>
+
+                                <p>http://api.ehaofang.com/ehaofang-pubapi/auth/getAccessToken.do</p>
+
+                            </div>
+                        </div>
+                        <p class="bold">参数说明</p>
+                        <table class="tbl">
+                            <thead>
+                            <tr>
+                                <td style="border-left: none">参数名</td>
+                                <td>是否必须</td>
+                                <td>类型</td>
+                                <td>说明</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>userName</td>
+                                <td>是</td>
+                                <td>String</td>
+                                <td>用户名</td>
+                            </tr>
+                            <tr>
+                                <td>password</td>
+                                <td>是</td>
+                                <td>String</td>
+                                <td>密码</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p class="bold">返回说明</p>
+                        <p>获取成功：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "data": {
+        "accessToken": "a1df4779-c60c-4ac5-af53-432849f80b27" //调用接口凭证  有效期为7200秒
+    },
+    "status": "success",
+    "info": "获取成功!"
+}
+</pre>
+                            </div>
+                        </div>
+                        <p>获取失败：</p>
+                        <div class="cell set_bottom">
+                            <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "data": null,
+    "status": "failure",
+    "info": "用户名密码不能为空!"
+}
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toTop">
+                    <a href="#">TOP</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <!--内容头部-->
+        <div class="main_hd">
+            <h3>楼盘列表信息</h3>
+        </div>
+        <div class="main_bd">
+            <div class="box">
+                <p>查询楼盘列表信息接口</p>
+
+                <p class="bold">接口调用请求说明</p>
+
+                <div class="cell set_bottom">
+                    <div class="gray_pre gray_pres">
+                        <p>http请求方式: POST</p>
+
+                        <p>http://api.ehaofang.com/ehaofang-pubapi/xtProperty/getPropertyList.do</p>
+
+                    </div>
+                </div>
+                <p class="bold">参数说明</p>
+                <table class="tbl">
+                    <thead>
+                    <tr>
+                        <td style="border-left: none">参数名</td>
+                        <td>是否必须</td>
+                        <td>类型</td>
+                        <td>说明</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>agencyId</td>
+                        <td>是</td>
+                        <td>String</td>
+                        <td>公司id</td>
+                    </tr>
+                    <tr>
+                        <td>accessToken</td>
+                        <td>是</td>
+                        <td>String</td>
+                        <td>接口凭证</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <p class="bold">返回说明</p>
+                <p>查询成功返回：</p>
+                <div class="cell set_bottom">
+                    <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "data": [
+        {
+            "cityName": "昆山市",//城市名称,
+            "propertyusername": "郭平", //项目负责人
+            "propertyusermobile": "13451782116", //项目负责人电话
+            "propertyName": "天润尚院",//楼盘名称
+            "commissionMoney": "150000",//佣金
+            "sellState":4,//销售状态（1：预售，2：在售，3：现房，4：售完）
+            "mainPic": "20170705170705162123559-3957.jpg",//楼盘图片显示路径
+            "minAcreage": 200,//最小面积
+            "id": 3,//楼盘id
+            "averagePrice": 13000,//平均价
+            "boroughName": "周庄",//区域
+            "maxAcreage": 297,//最大面积
+            "buildingType": "1,2",//逗号为正则分开 然后数字代表的意思如下：1：住宅，2：别墅，3：公寓，4：商铺 ，5：写字楼 6：洋房
+            "status": 0 //等于0 为未签约 大于0 为已签约
+        }
+    ],
+    "status": "success",
+    "info": "查询成功!"
+}
+</pre>
+                    </div>
+                </div>
+                <p>查询失败返回：</p>
+                <div class="cell set_bottom">
+                    <div class="gray_pre gray_pres">
+                                <pre>
+{
+    "data": null,
+    "status": "failure",
+    "info": "error_accesstoken"   //不合法的accessToken
+}
+或
+{
+    "status": "failure",
+    "data": null,
+    "info": "参数不合法!"
+}
+或
+{
+    "status": "failure",
+    "data": null,
+    "info": "系统异常!"
+}
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="toTop">
+            <a href="#">TOP</a>
+        </div>
+    </div>
+</section>
+<script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>
